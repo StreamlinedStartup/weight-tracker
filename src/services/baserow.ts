@@ -29,8 +29,7 @@ async function apiRequest(url: string, options: RequestInit = {}) {
 
 export async function getEntries(): Promise<WeightEntry[]> {
   if (!API_TOKEN || !TABLE_ID) {
-    console.error("Baserow environment variables are not set.");
-    return [];
+    throw new Error("Baserow environment variables (VITE_BASEROW_API_TOKEN, VITE_BASEROW_TABLE_ID) are not set in your .env file.");
   }
   const data = await apiRequest(`${API_URL}?user_field_names=true`);
   return data.results;

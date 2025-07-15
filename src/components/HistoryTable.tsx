@@ -30,28 +30,30 @@ export const HistoryTable = ({ data }: HistoryTableProps) => {
         <CardTitle>History</CardTitle>
       </CardHeader>
       <CardContent>
-        <Table>
-          <TableHeader>
-            <TableRow>
-              <TableHead>Date</TableHead>
-              <TableHead className="text-right">Weight</TableHead>
-              <TableHead className="text-right">Week</TableHead>
-              <TableHead className="text-right">Dose (mg)</TableHead>
-              <TableHead>Notes</TableHead>
-            </TableRow>
-          </TableHeader>
-          <TableBody>
-            {sortedData.map((entry) => (
-              <TableRow key={entry.id}>
-                <TableCell>{format(new Date(entry.Date), "PPP")}</TableCell>
-                <TableCell className="text-right">{entry.Weight}</TableCell>
-                <TableCell className="text-right">{entry.Week}</TableCell>
-                <TableCell className="text-right">{entry["Dose(mg)"]}</TableCell>
-                <TableCell>{entry.Notes}</TableCell>
+        <div className="relative w-full overflow-auto">
+          <Table>
+            <TableHeader>
+              <TableRow>
+                <TableHead>Date</TableHead>
+                <TableHead className="text-right">Weight</TableHead>
+                <TableHead className="text-right">Week</TableHead>
+                <TableHead className="text-right">Dose (mg)</TableHead>
+                <TableHead>Notes</TableHead>
               </TableRow>
-            ))}
-          </TableBody>
-        </Table>
+            </TableHeader>
+            <TableBody>
+              {sortedData.map((entry) => (
+                <TableRow key={entry.id}>
+                  <TableCell>{format(new Date(entry.Date), "PPP")}</TableCell>
+                  <TableCell className="text-right">{entry.Weight}</TableCell>
+                  <TableCell className="text-right">{entry.Week}</TableCell>
+                  <TableCell className="text-right">{entry["Dose(mg)"]}</TableCell>
+                  <TableCell>{entry.Notes}</TableCell>
+                </TableRow>
+              ))}
+            </TableBody>
+          </Table>
+        </div>
       </CardContent>
     </Card>
   );

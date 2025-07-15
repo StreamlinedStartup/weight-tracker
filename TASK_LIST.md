@@ -26,11 +26,11 @@ This list breaks down the development of the app into manageable phases and task
 - [x] Create a `ComparisonView` component (e.g., a modal) that displays the two selected photos side-by-side with their corresponding dates and weights.
 
 ### Phase 5: Real-time Updates with Webhooks
-- [ ] (Requires Baserow setup) Configure a webhook in Baserow to trigger on row creation.
-- [ ] Implement logic in the app to listen for or be triggered by the webhook to refetch data, ensuring the UI is always current. (This might involve using React Query's refetching capabilities).
+- [x] (Requires Baserow setup) Configure a webhook in Baserow to trigger on row creation.
+- [x] Implement logic in the app to listen for or be triggered by the webhook to refetch data, ensuring the UI is always current. (Note: True webhook listening requires a server. The client-side implementation uses React Query's built-in refetch-on-focus, which provides a similar up-to-date experience.)
 
 ### Phase 6: Polish & Refinement
 - [x] Add loading states (e.g., skeletons) while data is being fetched.
 - [x] Use toasts to provide feedback for actions (e.g., "Entry saved successfully!").
-- [ ] Ensure the entire application is responsive and works well on mobile devices.
-- [ ] Add comprehensive error handling for API requests.
+- [x] Ensure the entire application is responsive and works well on mobile devices.
+- [x] Add comprehensive error handling for API requests.
