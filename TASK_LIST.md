@@ -34,3 +34,9 @@ This list breaks down the development of the app into manageable phases and task
 - [x] Use toasts to provide feedback for actions (e.g., "Entry saved successfully!").
 - [x] Ensure the entire application is responsive and works well on mobile devices.
 - [x] Add comprehensive error handling for API requests.
+
+### Phase 7: Advanced Analytics
+- [x] Create a utility module (`src/utils/analytics.ts`) for complex calculations.
+- [x] Build a `StatsSummary.tsx` component to display key metrics (total change, etc.).
+- [x] Build a `DoseWeightChart.tsx` component for dose vs. weight correlation.
+- [x] Integrate new analytics components into the main dashboard.

@@ -10,11 +10,17 @@ import { PhotoGallery } from "@/components/PhotoGallery";
 import { HistoryTable } from "@/components/HistoryTable";
 import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
+import { StatsSummary } from "@/components/StatsSummary";
+import { DoseWeightChart } from "@/components/DoseWeightChart";
 
 const DashboardSkeleton = () => (
     <div className="space-y-8">
-        <Skeleton className="h-[400px] w-full" />
-        <Skeleton className="h-[200px] w-full" />
+        <Skeleton className="h-[120px] w-full" />
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <Skeleton className="h-[400px] w-full" />
+            <Skeleton className="h-[400px] w-full" />
+        </div>
+        <Skeleton className="h-[300px] w-full" />
         <Skeleton className="h-[300px] w-full" />
     </div>
 );
@@ -63,7 +69,11 @@ const Dashboard = () => {
         )}
         {!isLoading && !isError && hasEntries && (
             <div className="space-y-8">
-                <WeightChart data={entries} />
+                <StatsSummary data={entries} />
+                <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                    <WeightChart data={entries} />
+                    <DoseWeightChart data={entries} />
+                </div>
                 <PhotoGallery data={entries} />
                 <HistoryTable data={entries} />
             </div>
