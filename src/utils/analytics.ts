@@ -67,52 +67,47 @@ export function analyzeDoseEffectiveness(data: WeightEntry[]): DoseAnalysis[] {
     (a, b) => new Date(a.Date).getTime() - new Date(b.Date).getTime()
   );
 
-  const analysis: DoseAnalysis[] = [];
-  let currentDoseBlock: WeightEntry[] = [];
-
-  for (let i = 0; i < sortedData.length; i++) {
-    const entry = sortedData[i];
-    const currentDose = entry["Dose(mg)"];
-
-    if (currentDoseBlock.length === 0) {
-      currentDoseBlock.push(entry);
-    } else if (currentDose === currentDoseBlock[0]["Dose(mg)"]) {
-      currentDoseBlock.push(entry);
-    }
-
-    // If the dose changes or it's the last entry, process the block
-    if (
-      i === sortedData.length - 1 ||
-      currentDose !== currentDoseBlock[0]["Dose(mg)"]
-    ) {
-      // Don't process if the block is for a new dose that just started
-      if (currentDoseBlock.length > 1) {
-        const firstEntry = currentDoseBlock[0];
-        const lastEntry = currentDoseBlock[currentDoseBlock.length - 1];
-
-        const startDate = new Date(firstEntry.Date);
-        const endDate = new Date(lastEntry.Date);
-        const durationInWeeks = differenceInWeeks(endDate, startDate);
-        const totalChange = lastEntry.Weight - firstEntry.Weight;
-
-        analysis.push({
-          dose: firstEntry["Dose(mg)"],
-          startDate: format(startDate, "PPP"),
-          endDate: format(endDate, "PPP"),
-          durationInWeeks: durationInWeeks,
-          startingWeight: firstEntry.Weight,
-          endingWeight: lastEntry.Weight,
-          totalChange: totalChange,
-          averageWeeklyChange:
-            durationInWeeks > 0 ? totalChange / durationInWeeks : totalChange,
-          entryCount: currentDoseBlock.length,
-        });
+  // 1. Group entries into consecutive blocks by dose.
+  const doseBlocks: WeightEntry[][] = [];
+  if (sortedData.length > 0) {
+    doseBlocks.push([sortedData[0]]);
+    for (let i = 1; i < sortedData.length; i++) {
+      const currentEntry = sortedData[i];
+      const lastBlock = doseBlocks[doseBlocks.length - 1];
+      if (currentEntry["Dose(mg)"] === lastBlock[0]["Dose(mg)"]) {
+        lastBlock.push(currentEntry);
+      } else {
+        doseBlocks.push([currentEntry]);
       }
-      
-      // Start a new block with the current entry
-      currentDoseBlock = [entry];
     }
   }
+
+  // 2. Analyze each block.
+  const analysis = doseBlocks
+    .filter(block => block.length > 1) // Only analyze periods with more than one data point.
+    .map(block => {
+      const firstEntry = block[0];
+      const lastEntry = block[block.length - 1];
+      const entryCount = block.length;
+
+      const totalChange = lastEntry.Weight - firstEntry.Weight;
+      
+      // The number of intervals is one less than the number of entries.
+      const numberOfIntervals = entryCount - 1;
+      const averageWeeklyChange = numberOfIntervals > 0 ? totalChange / numberOfIntervals : 0;
+
+      return {
+        dose: firstEntry["Dose(mg)"],
+        startDate: format(new Date(firstEntry.Date), "PPP"),
+        endDate: format(new Date(lastEntry.Date), "PPP"),
+        durationInWeeks: entryCount, // As per user feedback, duration in weeks = number of entries.
+        startingWeight: firstEntry.Weight,
+        endingWeight: lastEntry.Weight,
+        totalChange: totalChange,
+        averageWeeklyChange: averageWeeklyChange,
+        entryCount: entryCount,
+      };
+    });
 
   return analysis;
 }
