@@ -47,21 +47,8 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
   return (
     <>
       <Card>
-        <CardHeader className="flex-row items-center justify-between">
+        <CardHeader>
           <CardTitle>Photo Gallery</CardTitle>
-          {selectedPhotos.length > 0 && (
-            <div className="flex items-center gap-2">
-              {selectedPhotos.length > 1 && (
-                 <Button size="sm" onClick={() => setComparisonOpen(true)}>
-                    Compare ({selectedPhotos.length})
-                 </Button>
-              )}
-              <Button size="sm" variant="outline" onClick={() => setSelectedPhotos([])}>
-                <XCircle className="h-4 w-4 mr-2" />
-                Clear Selection
-              </Button>
-            </div>
-          )}
         </CardHeader>
         <CardContent>
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
@@ -93,6 +80,23 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
           </div>
         </CardContent>
       </Card>
+
+      {selectedPhotos.length > 0 && (
+        <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
+          <div className="flex items-center gap-2 p-2 bg-background border rounded-full shadow-lg animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
+            {selectedPhotos.length > 1 && (
+              <Button size="sm" onClick={() => setComparisonOpen(true)}>
+                Compare ({selectedPhotos.length})
+              </Button>
+            )}
+            <Button size="sm" variant="outline" onClick={() => setSelectedPhotos([])}>
+              <XCircle className="h-4 w-4 mr-2" />
+              Clear Selection
+            </Button>
+          </div>
+        </div>
+      )}
+
       <PhotoComparison
         isOpen={isComparisonOpen}
         onOpenChange={setComparisonOpen}
