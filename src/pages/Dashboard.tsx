@@ -12,6 +12,7 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Alert, AlertDescription, AlertTitle } from "@/components/ui/alert";
 import { StatsSummary } from "@/components/StatsSummary";
 import { DoseWeightChart } from "@/components/DoseWeightChart";
+import { DoseEfficacy } from "@/components/DoseEfficacy";
 
 const DashboardSkeleton = () => (
     <div className="space-y-8">
@@ -70,6 +71,7 @@ const Dashboard = () => {
         {!isLoading && !isError && hasEntries && (
             <div className="space-y-8">
                 <StatsSummary data={entries} />
+                <DoseEfficacy data={entries} />
                 <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
                     <WeightChart data={entries} />
                     <DoseWeightChart data={entries} />
