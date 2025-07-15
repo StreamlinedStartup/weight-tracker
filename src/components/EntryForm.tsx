@@ -67,9 +67,9 @@ export function EntryForm() {
 
       const entryData: NewEntryData = {
         "Date": values.date.toISOString(),
-        "Week #": values.week,
-        "Dose (MG)": values.dose,
-        "weight": values.weight,
+        "Week": values.week,
+        "Dose(mg)": values.dose,
+        "Weight": values.weight,
         "Notes": values.notes || "",
         "Photos": photoPayload,
       };

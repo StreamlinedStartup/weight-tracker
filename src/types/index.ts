@@ -17,18 +17,18 @@ export interface WeightEntry {
   id: number;
   order: string;
   Date: string; // ISO 8601 date string
-  "Week #": number;
-  "Dose (MG)": number;
-  weight: number;
+  Week: number;
+  "Dose(mg)": number;
+  Weight: number;
   Notes: string;
   Photos: BaserowFile[];
 }
 
 export type NewEntryData = {
   "Date": string;
-  "Week #": number;
-  "Dose (MG)": number;
-  "weight": number;
+  "Week": number;
+  "Dose(mg)": number;
+  "Weight": number;
   "Notes": string;
   "Photos": { name: string }[];
 }
