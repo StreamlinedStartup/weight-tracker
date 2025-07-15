@@ -2,8 +2,9 @@ import type { WeightEntry, BaserowFile } from "../types";
 
 const API_TOKEN = import.meta.env.VITE_BASEROW_API_TOKEN;
 const TABLE_ID = import.meta.env.VITE_BASEROW_TABLE_ID;
-const API_URL = `https://api.baserow.io/api/database/rows/table/${TABLE_ID}/`;
-const UPLOAD_URL = `https://api.baserow.io/api/user-files/upload-file/`;
+const BASE_URL = (import.meta.env.VITE_BASEROW_BASE_URL || "https://api.baserow.io").replace(/\/$/, "");
+const API_URL = `${BASE_URL}/api/database/rows/table/${TABLE_ID}/`;
+const UPLOAD_URL = `${BASE_URL}/api/user-files/upload-file/`;
 
 async function apiRequest(url: string, options: RequestInit = {}) {
   const headers: HeadersInit = {
