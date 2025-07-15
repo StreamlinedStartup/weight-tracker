@@ -49,8 +49,17 @@ export const DoseWeightChart = ({ data }: DoseWeightChartProps) => {
               label={{ value: "Dose (mg)", angle: 90, position: "insideRight" }}
             />
             <Tooltip />
-            <Legend />
-            <Bar yAxisId="right" dataKey="Dose" fill="hsl(var(--secondary))" />
+            <Legend
+              formatter={(value) => (
+                <span className="text-muted-foreground">{value}</span>
+              )}
+            />
+            <Bar
+              yAxisId="right"
+              dataKey="Dose"
+              fill="hsl(var(--muted-foreground))"
+              fillOpacity={0.4}
+            />
             <Line
               yAxisId="left"
               type="monotone"
