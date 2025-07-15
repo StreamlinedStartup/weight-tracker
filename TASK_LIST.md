@@ -17,9 +17,9 @@ This list breaks down the development of the app into manageable phases and task
 
 ### Phase 3: UI - Data Display & Visualization
 - [x] Create the main dashboard page (`src/pages/Dashboard.tsx`) and route to it from `/`.
-- [ ] On the dashboard, fetch and display all weight entries from Baserow in a list or table.
-- [ ] Implement a line chart component (`src/components/WeightChart.tsx`) using `recharts` to visualize weight trends.
-- [ ] Create a photo gallery component (`src/components/PhotoGallery.tsx`) to display all uploaded photos.
+- [x] On the dashboard, fetch and display all weight entries from Baserow in a list or table.
+- [x] Implement a line chart component (`src/components/WeightChart.tsx`) using `recharts` to visualize weight trends.
+- [x] Create a photo gallery component (`src/components/PhotoGallery.tsx`) to display all uploaded photos.
 
 ### Phase 4: UI - Photo Comparison
 - [ ] Implement a selection mechanism in the `PhotoGallery` to allow the user to pick two photos.
@@ -30,7 +30,7 @@ This list breaks down the development of the app into manageable phases and task
 - [ ] Implement logic in the app to listen for or be triggered by the webhook to refetch data, ensuring the UI is always current. (This might involve using React Query's refetching capabilities).
 
 ### Phase 6: Polish & Refinement
-- [ ] Add loading states (e.g., skeletons) while data is being fetched.
-- [ ] Use toasts to provide feedback for actions (e.g., "Entry saved successfully!").
+- [x] Add loading states (e.g., skeletons) while data is being fetched.
+- [x] Use toasts to provide feedback for actions (e.g., "Entry saved successfully!").
 - [ ] Ensure the entire application is responsive and works well on mobile devices.
 - [ ] Add comprehensive error handling for API requests.

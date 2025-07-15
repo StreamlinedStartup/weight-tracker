@@ -59,10 +59,12 @@ export function EntryForm() {
   const mutation = useMutation({
     mutationFn: async (values: FormValues) => {
       let photoPayload: { name: string }[] = [];
+      const files = Array.from(values.photo ?? []);
 
-      if (values.photo && values.photo.length > 0) {
-        const uploadedPhoto = await uploadFile(values.photo[0]);
-        photoPayload.push({ name: uploadedPhoto.name });
+      if (files.length > 0) {
+        const uploadPromises = files.map(file => uploadFile(file));
+        const uploadedPhotos = await Promise.all(uploadPromises);
+        photoPayload = uploadedPhotos.map(p => ({ name: p.name }));
       }
 
       const entryData: NewEntryData = {
@@ -197,9 +199,9 @@ export function EntryForm() {
           name="photo"
           render={() => (
             <FormItem>
-              <FormLabel>Progress Photo</FormLabel>
+              <FormLabel>Progress Photo(s)</FormLabel>
               <FormControl>
-                <Input type="file" accept="image/*" {...photoRef} />
+                <Input type="file" accept="image/*" {...photoRef} multiple />
               </FormControl>
               <FormMessage />
             </FormItem>
