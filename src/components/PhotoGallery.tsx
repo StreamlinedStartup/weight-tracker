@@ -83,7 +83,7 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
 
       {selectedPhotos.length > 0 && (
         <div className="fixed bottom-5 left-1/2 -translate-x-1/2 z-50">
-          <div className="flex items-center gap-2 p-2 bg-background border rounded-full shadow-lg animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
+          <div className="flex items-center gap-4 p-3 bg-background border rounded-full shadow-lg animate-in fade-in-0 slide-in-from-bottom-2 duration-300">
             {selectedPhotos.length > 1 && (
               <Button size="sm" onClick={() => setComparisonOpen(true)}>
                 Compare ({selectedPhotos.length})
