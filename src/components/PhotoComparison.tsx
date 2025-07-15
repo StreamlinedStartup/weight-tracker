@@ -22,6 +22,9 @@ interface PhotoComparisonProps {
 export const PhotoComparison = ({ isOpen, onOpenChange, photos }: PhotoComparisonProps) => {
   const [isFullSize, setIsFullSize] = useState(false);
 
+  // Adapt image height based on the number of photos to ensure they fit on screen.
+  const maxImageHeight = photos.length > 2 ? "max-h-[35vh]" : "max-h-[60vh]";
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => {
       onOpenChange(open);
@@ -51,7 +54,7 @@ export const PhotoComparison = ({ isOpen, onOpenChange, photos }: PhotoCompariso
                   alt={`Progress photo from ${format(new Date(photo.date), "PPP")}`}
                   className={cn(
                     "rounded-lg object-contain w-full",
-                    !isFullSize && "max-h-[65vh]"
+                    !isFullSize && maxImageHeight
                   )}
                 />
                 <div className="text-center">
