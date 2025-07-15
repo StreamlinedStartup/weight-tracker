@@ -5,9 +5,9 @@ This list breaks down the development of the app into manageable phases and task
 ### Phase 1: Project Setup & Baserow Integration
 - [x] Create `PRODUCT_REQUIREMENTS.md`.
 - [x] Create `TASK_LIST.md`.
-- [ ] Configure environment variables for Baserow API Token, Database ID, and Table ID.
-- [ ] Create a TypeScript service/module (`src/services/baserow.ts`) to handle all API interactions with Baserow (e.g., fetching, creating, and uploading files).
-- [ ] Define TypeScript types for the data structure (e.g., `WeightEntry`).
+- [x] Configure environment variables for Baserow API Token, Database ID, and Table ID.
+- [x] Create a TypeScript service/module (`src/services/baserow.ts`) to handle all API interactions with Baserow (e.g., fetching, creating, and uploading files).
+- [x] Define TypeScript types for the data structure (e.g., `WeightEntry`).
 
 ### Phase 2: UI - Data Entry
 - [ ] Create a new page for adding entries (`src/pages/AddEntry.tsx`).
