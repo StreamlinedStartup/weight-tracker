@@ -32,3 +32,8 @@ export type NewEntryData = {
   "Notes": string;
   "Photos": { name: string }[];
 }
+
+export interface GalleryPhoto extends BaserowFile {
+    date: string;
+    weight: number;
+}

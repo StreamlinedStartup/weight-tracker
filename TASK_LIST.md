@@ -22,8 +22,8 @@ This list breaks down the development of the app into manageable phases and task
 - [x] Create a photo gallery component (`src/components/PhotoGallery.tsx`) to display all uploaded photos.
 
 ### Phase 4: UI - Photo Comparison
-- [ ] Implement a selection mechanism in the `PhotoGallery` to allow the user to pick two photos.
-- [ ] Create a `ComparisonView` component (e.g., a modal) that displays the two selected photos side-by-side with their corresponding dates and weights.
+- [x] Implement a selection mechanism in the `PhotoGallery` to allow the user to pick two photos.
+- [x] Create a `ComparisonView` component (e.g., a modal) that displays the two selected photos side-by-side with their corresponding dates and weights.
 
 ### Phase 5: Real-time Updates with Webhooks
 - [ ] (Requires Baserow setup) Configure a webhook in Baserow to trigger on row creation.
