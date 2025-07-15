@@ -36,4 +36,5 @@ export type NewEntryData = {
 export interface GalleryPhoto extends BaserowFile {
     date: string;
     weight: number;
+    dose: number;
 }

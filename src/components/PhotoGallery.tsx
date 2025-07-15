@@ -21,6 +21,7 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
         ...photo,
         date: entry.Date,
         weight: entry.Weight,
+        dose: entry["Dose(mg)"],
       }))
     )
     .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
