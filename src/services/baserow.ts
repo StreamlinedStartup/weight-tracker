@@ -1,4 +1,4 @@
-import type { WeightEntry, BaserowFile } from "../types";
+import type { WeightEntry, BaserowFile, NewEntryData } from "../types";
 
 const API_TOKEN = import.meta.env.VITE_BASEROW_API_TOKEN;
 const TABLE_ID = import.meta.env.VITE_BASEROW_TABLE_ID;
@@ -58,15 +58,6 @@ export async function uploadFile(file: File): Promise<BaserowFile> {
   }
 
   return response.json();
-}
-
-export type NewEntryData = {
-    "Date": string;
-    "Week #": number;
-    "Dose (MG)": number;
-    "weight": number;
-    "Notes": string;
-    "Photos": { name: string }[];
 }
 
 export async function createEntry(entryData: NewEntryData): Promise<WeightEntry> {

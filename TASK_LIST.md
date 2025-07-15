@@ -10,13 +10,13 @@ This list breaks down the development of the app into manageable phases and task
 - [x] Define TypeScript types for the data structure (e.g., `WeightEntry`).
 
 ### Phase 2: UI - Data Entry
-- [ ] Create a new page for adding entries (`src/pages/AddEntry.tsx`).
-- [ ] Build a form component (`src/components/EntryForm.tsx`) with fields for `date`, `weight`, and a `file input` for the photo.
-- [ ] Implement the logic to submit the form data and upload the photo to the Baserow table via the API service.
-- [ ] Add navigation to link from the main page to the "Add Entry" page.
+- [x] Create a new page for adding entries (`src/pages/AddEntry.tsx`).
+- [x] Build a form component (`src/components/EntryForm.tsx`) with fields for `date`, `weight`, and a `file input` for the photo.
+- [x] Implement the logic to submit the form data and upload the photo to the Baserow table via the API service.
+- [x] Add navigation to link from the main page to the "Add Entry" page.
 
 ### Phase 3: UI - Data Display & Visualization
-- [ ] Create the main dashboard page (`src/pages/Dashboard.tsx`) and route to it from `/`.
+- [x] Create the main dashboard page (`src/pages/Dashboard.tsx`) and route to it from `/`.
 - [ ] On the dashboard, fetch and display all weight entries from Baserow in a list or table.
 - [ ] Implement a line chart component (`src/components/WeightChart.tsx`) using `recharts` to visualize weight trends.
 - [ ] Create a photo gallery component (`src/components/PhotoGallery.tsx`) to display all uploaded photos.

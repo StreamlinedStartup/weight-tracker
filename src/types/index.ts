@@ -23,3 +23,12 @@ export interface WeightEntry {
   Notes: string;
   Photos: BaserowFile[];
 }
+
+export type NewEntryData = {
+  "Date": string;
+  "Week #": number;
+  "Dose (MG)": number;
+  "weight": number;
+  "Notes": string;
+  "Photos": { name: string }[];
+}
