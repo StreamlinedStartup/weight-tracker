@@ -1,8 +1,6 @@
 import {
   ArrowDown,
   ArrowUp,
-  BarChart,
-  Calendar,
   ChevronsDown,
   ChevronsUp,
   TrendingDown,
@@ -11,6 +9,7 @@ import {
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import type { WeightEntry } from "@/types";
 import { calculateStats } from "@/utils/analytics";
+import { cn } from "@/lib/utils";
 
 interface StatsSummaryProps {
   data: WeightEntry[];
@@ -21,16 +20,18 @@ const StatCard = ({
   value,
   unit,
   icon: Icon,
+  iconClassName,
 }: {
   title: string;
   value: string;
   unit?: string;
   icon: React.ElementType;
+  iconClassName?: string;
 }) => (
   <Card>
     <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
       <CardTitle className="text-sm font-medium">{title}</CardTitle>
-      <Icon className="h-4 w-4 text-muted-foreground" />
+      <Icon className={cn("h-4 w-4 text-muted-foreground", iconClassName)} />
     </CardHeader>
     <CardContent>
       <div className="text-2xl font-bold">
@@ -58,25 +59,27 @@ export const StatsSummary = ({ data }: StatsSummaryProps) => {
         <StatCard
           title="Total Weight Change"
           value={stats.totalChange.toFixed(1)}
-          unit="kg/lbs"
+          unit="lbs"
           icon={isLoss ? TrendingDown : TrendingUp}
+          iconClassName={isLoss ? "text-green-600" : "text-red-600"}
         />
         <StatCard
           title="Avg. Weekly Change"
           value={stats.averageWeeklyChange.toFixed(2)}
-          unit="kg/lbs"
+          unit="lbs"
           icon={isWeeklyLoss ? ArrowDown : ArrowUp}
+          iconClassName={isWeeklyLoss ? "text-green-600" : "text-red-600"}
         />
         <StatCard
           title="Highest Weight"
           value={stats.highestWeight.toFixed(1)}
-          unit="kg/lbs"
+          unit="lbs"
           icon={ChevronsUp}
         />
         <StatCard
           title="Lowest Weight"
           value={stats.lowestWeight.toFixed(1)}
-          unit="kg/lbs"
+          unit="lbs"
           icon={ChevronsDown}
         />
       </div>

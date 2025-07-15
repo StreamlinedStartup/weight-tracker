@@ -67,7 +67,7 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
                   />
                   <div className="absolute bottom-0 left-0 right-0 bg-black bg-opacity-50 text-white p-2 text-xs opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                     <p>{format(new Date(photo.date), "MMM d, yyyy")}</p>
-                    <p>{photo.weight} kg/lbs</p>
+                    <p>{photo.weight} lbs</p>
                   </div>
                   {isSelected && (
                     <div className="absolute inset-0 bg-blue-500 bg-opacity-50 flex items-center justify-center">

@@ -2,14 +2,15 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from "@/com
 import type { WeightEntry } from "@/types";
 import { analyzeDoseEffectiveness } from "@/utils/analytics";
 import { TrendingDown, TrendingUp, Calendar, Hash } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 interface DoseEfficacyProps {
   data: WeightEntry[];
 }
 
-const StatItem = ({ icon: Icon, label, value }: { icon: React.ElementType, label: string, value: string }) => (
+const StatItem = ({ icon: Icon, label, value, iconClassName }: { icon: React.ElementType, label: string, value: string, iconClassName?: string }) => (
     <div className="flex items-start text-sm">
-        <Icon className="h-4 w-4 mr-2 mt-0.5 text-muted-foreground flex-shrink-0" />
+        <Icon className={cn("h-4 w-4 mr-2 mt-0.5 text-muted-foreground flex-shrink-0", iconClassName)} />
         <div>
             <span className="font-medium">{label}:</span>
             <span className="ml-1 text-muted-foreground">{value}</span>
@@ -29,7 +30,8 @@ export const DoseEfficacy = ({ data }: DoseEfficacyProps) => {
       <h2 className="text-xl font-semibold mb-4">Dose Efficacy Analysis</h2>
       <div className="grid gap-6 md:grid-cols-2 lg:grid-cols-3">
         {doseAnalyses.map((analysis) => {
-          const isLoss = analysis.averageWeeklyChange < 0;
+          const isAvgLoss = analysis.averageWeeklyChange < 0;
+          const isTotalLoss = analysis.totalChange < 0;
           return (
             <Card key={analysis.dose}>
               <CardHeader>
@@ -38,14 +40,16 @@ export const DoseEfficacy = ({ data }: DoseEfficacyProps) => {
               </CardHeader>
               <CardContent className="space-y-3">
                 <StatItem 
-                    icon={isLoss ? TrendingDown : TrendingUp}
+                    icon={isAvgLoss ? TrendingDown : TrendingUp}
                     label="Avg. Weekly Change"
-                    value={`${analysis.averageWeeklyChange.toFixed(2)} kg/lbs`}
+                    value={`${analysis.averageWeeklyChange.toFixed(2)} lbs`}
+                    iconClassName={isAvgLoss ? "text-green-600" : "text-red-600"}
                 />
                 <StatItem 
-                    icon={isLoss ? TrendingDown : TrendingUp}
+                    icon={isTotalLoss ? TrendingDown : TrendingUp}
                     label="Total Change"
-                    value={`${analysis.totalChange.toFixed(1)} kg/lbs`}
+                    value={`${analysis.totalChange.toFixed(1)} lbs`}
+                    iconClassName={isTotalLoss ? "text-green-600" : "text-red-600"}
                 />
                 <StatItem 
                     icon={Calendar}

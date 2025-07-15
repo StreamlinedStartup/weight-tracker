@@ -59,7 +59,7 @@ export const PhotoComparison = ({ isOpen, onOpenChange, photos }: PhotoCompariso
                 />
                 <div className="text-center">
                   <p className="font-semibold">{format(new Date(photo.date), "PPP")}</p>
-                  <p className="text-sm text-muted-foreground">{photo.weight} kg/lbs</p>
+                  <p className="text-sm text-muted-foreground">{photo.weight} lbs</p>
                 </div>
               </div>
             ))}
