@@ -24,7 +24,7 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
         dose: entry["Dose(mg)"],
       }))
     )
-    .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
+    .sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
 
   const handleSelectPhoto = (photo: GalleryPhoto) => {
     setSelectedPhotos((prevSelected) => {

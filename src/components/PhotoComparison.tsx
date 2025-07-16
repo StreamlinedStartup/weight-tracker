@@ -25,6 +25,8 @@ export const PhotoComparison = ({ isOpen, onOpenChange, photos }: PhotoCompariso
   // Adapt image height based on the number of photos to ensure they fit on screen.
   const maxImageHeight = photos.length > 2 ? "max-h-[35vh]" : "max-h-[60vh]";
 
+  const sortedPhotos = [...photos].sort((a, b) => new Date(a.date).getTime() - new Date(b.date).getTime());
+
   return (
     <Dialog open={isOpen} onOpenChange={(open) => {
       onOpenChange(open);
@@ -47,7 +49,7 @@ export const PhotoComparison = ({ isOpen, onOpenChange, photos }: PhotoCompariso
         </DialogHeader>
         <ScrollArea className="flex-grow">
           <div className="grid grid-cols-1 md:grid-cols-2 gap-6 p-1 pr-6">
-            {photos.map((photo) => (
+            {sortedPhotos.map((photo) => (
               <div key={photo.name} className="flex flex-col items-center space-y-2">
                 <img
                   src={photo.url}
