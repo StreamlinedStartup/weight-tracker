@@ -41,6 +41,13 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
     });
   };
 
+  const handleComparisonChange = (isOpen: boolean) => {
+    setComparisonOpen(isOpen);
+    if (!isOpen) {
+      setSelectedPhotos([]);
+    }
+  };
+
   if (allPhotos.length === 0) {
     return null;
   }
@@ -100,7 +107,7 @@ export const PhotoGallery = ({ data }: PhotoGalleryProps) => {
 
       <PhotoComparison
         isOpen={isComparisonOpen}
-        onOpenChange={setComparisonOpen}
+        onOpenChange={handleComparisonChange}
         photos={selectedPhotos}
       />
     </>
