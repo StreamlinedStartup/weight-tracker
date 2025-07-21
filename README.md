@@ -1,4 +1,4 @@
-# WeightTrack & PhotoCompare
+# GLP-1 Journey
 
 A simple, private, and effective web application for tracking weight, dosage, and progress photos. Built with React and TypeScript, it uses Baserow as a private, self-hosted backend, giving you full control over your data.
 
@@ -46,8 +46,8 @@ This application requires a Baserow database to store your data.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/weight-tracker.git
-    cd weight-tracker
+    git clone https://github.com/your-username/your-repo-name.git
+    cd your-repo-name
     ```
 2.  **Install dependencies:**
     ```bash

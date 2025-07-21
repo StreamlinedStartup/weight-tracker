@@ -40,7 +40,7 @@ const Dashboard = () => {
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex justify-between items-center py-4">
             <h1 className="text-2xl font-bold text-gray-900 dark:text-white">
-              WeightTrack Dashboard
+              GLP-1 Journey Dashboard
             </h1>
             <Button asChild>
               <Link to="/add">

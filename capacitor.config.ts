@@ -2,7 +2,7 @@ import type { CapacitorConfig } from '@capacitor/cli';
 
 const config: CapacitorConfig = {
   appId: 'com.example.weighttracker',
-  appName: 'weight-tracker',
+  appName: 'GLP-1 Journey',
   webDir: 'dist'
 };
 
