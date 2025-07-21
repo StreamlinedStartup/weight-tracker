@@ -4,15 +4,15 @@ A simple, private, and effective web application for tracking weight, dosage, an
 
 ## Core Features
 
-*   **📝 Simple Data Entry:** Easily log your weight, date, medication dose, and notes.
-*   **📸 Photo Uploads:** Attach multiple progress photos to each entry.
-*   **📈 Trend Visualization:** View your weight progress over time with an interactive line chart.
-*   **📊 Dose vs. Weight Analysis:** A composed chart helps visualize the correlation between your dosage and weight changes.
-*   **🚀 Efficacy Analysis:** Automatically calculates and displays statistics for each dosage period, showing you what's most effective.
-*   **🖼️ Photo Gallery:** Browse all your uploaded photos in a clean, modern gallery with newest photos first.
-*   **🔍 Side-by-Side Comparison:** Select any 2 to 4 photos to compare them in a detailed, side-by-side view, sorted chronologically.
-*   **🔒 100% Private:** Your data is stored in your own Baserow database, not on our servers.
-*   **📱 Responsive Design:** Works seamlessly on both desktop and mobile devices.
+*   **Simple Data Entry:** Easily log your weight, date, medication dose, and notes.
+*   **Photo Uploads:** Attach multiple progress photos to each entry.
+*   **Trend Visualization:** View your weight progress over time with an interactive line chart.
+*   **Dose vs. Weight Analysis:** A composed chart helps visualize the correlation between your dosage and weight changes.
+*   **Efficacy Analysis:** Automatically calculates and displays statistics for each dosage period, showing you what's most effective.
+*   **Photo Gallery:** Browse all your uploaded photos in a clean, modern gallery with newest photos first.
+*   **Side-by-Side Comparison:** Select any 2 to 4 photos to compare them in a detailed, side-by-side view, sorted chronologically.
+*   **100% Private:** Your data is stored in your own Baserow database, not on our servers.
+*   **Responsive Design:** Works seamlessly on both desktop and mobile devices.
 
 ## Tech Stack
 
@@ -65,6 +65,11 @@ This application requires a Baserow database to store your data.
     # (Optional) If using a self-hosted Baserow instance, provide the base URL
     # VITE_BASEROW_BASE_URL="https://your-baserow.example.com"
     ```
+    
+    **Important Security Notes:**
+    *   The `.env` file is listed in `.gitignore`, so your personal credentials will **never** be committed to the repository. Anyone who clones this project must create their own `.env` file.
+    *   This application is a client-side-only project. As such, the `VITE_BASEROW_API_TOKEN` is included in the built JavaScript files and is accessible to anyone using the deployed application. For personal use where the URL is not shared, this is generally acceptable. For public-facing applications, you should implement a backend proxy to protect your write-access API token.
+
 4.  **Run the app:**
     ```bash
     npm run dev
@@ -74,18 +79,18 @@ This application requires a Baserow database to store your data.
 ## Project Structure
 ```
 /
-├── public/
-└── src/
-    ├── components/      # Reusable React components
-    │   ├── ui/          # Unmodified shadcn/ui components
-    │   └── *.tsx        # Custom application components
-    ├── hooks/           # Custom React hooks
-    ├── lib/             # Utility functions (e.g., cn for Tailwind)
-    ├── pages/           # Page components for different routes
-    ├── services/        # API interaction logic (e.g., baserow.ts)
-    ├── types/           # TypeScript type definitions
-    ├── App.tsx          # Main app component with routing
-    └── main.tsx         # Application entry point
+  public/
+  src/
+    components/      # Reusable React components
+      ui/          # Unmodified shadcn/ui components
+      *.tsx        # Custom application components
+    hooks/           # Custom React hooks
+    lib/             # Utility functions (e.g., cn for Tailwind)
+    pages/           # Page components for different routes
+    services/        # API interaction logic (e.g., baserow.ts)
+    types/           # TypeScript type definitions
+    App.tsx          # Main app component with routing
+    main.tsx         # Application entry point
 ```
 
 ---
