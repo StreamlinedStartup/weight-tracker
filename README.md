@@ -14,6 +14,13 @@ A simple, private, and effective web application for tracking weight, dosage, an
 *   **100% Private:** Your data is stored in your own Baserow database, not on our servers.
 *   **Responsive Design:** Works seamlessly on both desktop and mobile devices.
 
+<img width="1423" height="772" alt="GLP-1 Dashboard" src="https://github.com/user-attachments/assets/9a8d2f04-d15f-4cbd-a97f-75b8469ea67a" />
+
+<img width="1422" height="996" alt="CleanShot 2025-07-21 at 15 54 21 2" src="https://github.com/user-attachments/assets/9bb22b84-c4c0-4b2d-ad8d-8daf84ef10bb" />
+
+<img width="1441" height="1008" alt="CleanShot 2025-07-21 at 15 55 20" src="https://github.com/user-attachments/assets/6ef89ef1-4045-4444-9450-c70cfff01eed" />
+
+
 ## Tech Stack
 
 *   **Frontend:** React, TypeScript, Vite
@@ -46,8 +53,8 @@ This application requires a Baserow database to store your data.
 
 1.  **Clone the repository:**
     ```bash
-    git clone https://github.com/your-username/your-repo-name.git
-    cd your-repo-name
+    git clone https://github.com/StreamlinedStartup/weight-tracker.git
+    cd weight-tracker
     ```
 2.  **Install dependencies:**
     ```bash
